@@ -1,9 +1,9 @@
 import React from "react";
-import { Routes, Route, Outlet, Navigate } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 
 import Navbar from "@/components/NavBar/NavBar";
-import Home from '@/containers/home/home'
-import Record from '@/containers/record/record'
+
+import './layout.scss'
 
 class Layout extends React.Component {
     render() {
@@ -16,16 +16,21 @@ class Layout extends React.Component {
                 title: 'Record',
                 path: '/record'
             },
+            {
+                title: 'Tet',
+                path: '/rd'
+            },
+            {
+                title: 'Ord',
+                path: '/ord'
+            },
         ];
         return (
             <div className="wrap">
                 <Navbar navList={navList} />
-                <Outlet />
-                <Routes>
-                    <Route path="/" element={<Navigate to="/home" />}></Route>
-                    <Route path="/home" element={<Home />}></Route>
-                    <Route path="/record" element={<Record />}></Route>
-                </Routes>
+                <div className="container">
+                    <Outlet />
+                </div>
             </div>
         )
     }

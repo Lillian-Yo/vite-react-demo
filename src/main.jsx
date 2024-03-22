@@ -7,11 +7,10 @@ import { Provider } from 'react-redux';
 
 //import reducers from './reducers/reducers.js';
 
-import Layout from './containers/layout/layout.jsx';
 import App from './App.jsx'
 
 import './index.css'
-
+import '@/assets/css/global.css'
 
 const store = createStore(
   applyMiddleware(thunk)
@@ -20,8 +19,7 @@ const store = createStore(
 ReactDOM.createRoot(document.getElementById('root')).render(
   (<Provider store={store}>
     <BrowserRouter>
-      {/* <App /> */}
-      <Layout></Layout>
+      <App />
     </BrowserRouter>
   </Provider>)
 );

@@ -1,0 +1,74 @@
+.home-nav {
+    box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
+    margin-bottom: 24px;
+    padding: 24px 100px;
+    background: #fff;
+
+    &-lt {
+        .logo {
+            width: 200px;
+            margin-right: 45px;
+        }
+
+        .home-nav-list {
+            font-size: 18px;
+            font-weight: bold;
+
+            &-item {
+                color: #646464;
+                text-decoration: none;
+                padding: 15px 30px;
+                margin-right: 30px;
+                border: 2px solid rgba(255, 255, 255, .3);
+                //box-shadow: 4px 4px 6px 0 rgba(0, 0, 0, .1), -4px -4px 6px rgba(255, 255, 255, 1);
+                border-radius: 10px;
+                transition: color 0.2s ease-out, transform 0.2s ease-out;
+            }
+
+            &-item:hover {
+                transform: scale(1);
+                box-shadow: 4px 4px 10px 0 rgba(0, 0, 0, .1), -4px -4px 10px rgba(255, 255, 255, 1);
+            }
+
+            .active {
+                transform: scale(0.95);
+                box-shadow: 4px 4px 10px 0 rgba(0, 0, 0, .1), -4px -4px 10px rgba(255, 255, 255, 1), 4px 4px 10px 0 rgba(0, 0, 0, .1) inset, -4px -4px 10px rgba(255, 255, 255, 1) inset;
+                //box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
+            }
+
+            .active,
+            &-item:hover {
+                color: #F3CECE !important;
+            }
+
+            a:visited {
+                color: #646464;
+            }
+        }
+    }
+
+    &-rt {
+        .login-btn {
+            font-size: 18px;
+            font-weight: bold;
+            padding: 15px 30px;
+            color: #fff;
+            background: #F3CECE;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .login-btn:hover,
+        .login-btn:focus {
+            box-shadow: 7px 7px 15px rgba(0, 0, 0, 0.09), -7px -7px 15px #ffffff;
+            // transform: translateY(-0.25em);
+            animation: shaking 2.5s infinite;
+        }
+    }
+}
+
+@keyframes shaking {
+    55% {
+        transform: translateY(-10px);
+    }
+}

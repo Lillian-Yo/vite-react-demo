@@ -1,0 +1,11 @@
+.wrap {
+    background: var(--theme-bgColor);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    .container {
+        margin: 0 100px;
+        flex: 1;
+    }
+}

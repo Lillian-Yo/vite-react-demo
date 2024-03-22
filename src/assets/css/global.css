@@ -1,0 +1,16 @@
+.flex {
+    display: flex;
+}
+
+.flex-al {
+    display: flex;
+    align-items: center;
+}
+
+.just-bt {
+    justify-content: space-between;
+}
+
+.just-ar {
+    justify-content: space-around;
+}
