@@ -1,8 +1,8 @@
 .home-nav {
-    box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
+    box-shadow: var(--theme-navBoxShodow);
     margin-bottom: 24px;
     padding: 24px 100px;
-    background: #fff;
+    background: var(--theme-bgColor);
 
     &-lt {
         .logo {
@@ -39,6 +39,7 @@
             .active,
             &-item:hover {
                 color: #F3CECE !important;
+                background: #fff;
             }
 
             a:visited {
@@ -56,6 +57,7 @@
             background: #F3CECE;
             border-radius: 10px;
             cursor: pointer;
+            margin-left: 45px;
         }
 
         .login-btn:hover,
