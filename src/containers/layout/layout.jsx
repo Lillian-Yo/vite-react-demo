@@ -1,11 +1,10 @@
-import React, { Suspense } from "react";
+import React from "react";
 import { Outlet } from 'react-router-dom';
 import { connect } from "react-redux";
 
 import { setLoading } from '@/reducers/actions/actions'
 
 import Navbar from "@/components/NavBar/NavBar";
-import PageLoad from "@/components/Loading/PageLoad/PageLoad";
 
 import './layout.scss'
 
@@ -23,10 +22,7 @@ import './layout.scss'
 
 class Layout extends React.Component {
 
-    componentDidMount() {
-        let $loader = document.querySelector('.loader');
-        $loader.classList.remove('loader--active')
-    }
+    // componentDidMount() {}
 
     render() {
         // console.log(this.props.isLoading, '----this.state.isLoading')
@@ -56,7 +52,6 @@ class Layout extends React.Component {
             <div className="wrap">
                 <Navbar navList={navList} />
                 <div className="container">
-                    <PageLoad></PageLoad>
                     <Outlet />
                 </div>
             </div>

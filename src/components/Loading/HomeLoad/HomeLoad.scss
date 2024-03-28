@@ -15,7 +15,7 @@ body {
 }
 
 .container {
-    width: 100%;
+    //width: 100%;
     display: flex;
     justify-content: center;
 }
@@ -47,6 +47,18 @@ body {
     z-index: 3;
     opacity: 0;
     top: 50%;
+}
+
+.btn {
+    top: 57% !important;
+    cursor: pointer;
+    color: $dark;
+    a {
+        text-decoration: none;
+    }
+    a:visited {
+        color: $dark;
+    }
 }
 
 section {

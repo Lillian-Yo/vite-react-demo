@@ -1,9 +1,12 @@
 import { Navigate } from 'react-router-dom';
 import { lazy } from 'react';
 
+import HomeLoad from '@/components/Loading/HomeLoad/HomeLoad';
+
 /**
  * @name 路由懒加载
 */
+
 
 const Layout = lazy(() => import('@/containers/layout/layout'));
 const Home = lazy(() => import('@/containers/home/home'));
@@ -15,13 +18,14 @@ const Record = lazy(() => import('@/containers/record/record'));
 
 let routers = [
     {
+        path: '',
+        element: <HomeLoad />
+    },
+    {
         path: '/',
         element: <Layout />,
         children: [
-            {
-                path: '',
-                element: <Navigate to="/home" />
-            },
+            
             {
                 path: 'home',
                 element: <Home />
