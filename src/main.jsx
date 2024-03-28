@@ -5,7 +5,7 @@ import { thunk } from 'redux-thunk';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
-//import reducers from './reducers/reducers.js';
+import reducers from './reducers/reducers.js';
 
 import App from './App.jsx'
 
@@ -13,6 +13,7 @@ import './index.css'
 import '@/assets/css/global.css'
 
 const store = createStore(
+  reducers,
   applyMiddleware(thunk)
 )
 

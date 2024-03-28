@@ -1,12 +1,38 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { Outlet } from 'react-router-dom';
+import { connect } from "react-redux";
+
+import { setLoading } from '@/reducers/actions/actions'
 
 import Navbar from "@/components/NavBar/NavBar";
+import PageLoad from "@/components/Loading/PageLoad/PageLoad";
 
 import './layout.scss'
 
+@connect(
+    state => ({ isLoading: state.loading.isLoading }),
+    { setLoading }
+)
+
+// const mapStateToProps = (state) => {
+//     console.log(state, 3333)
+//     return {
+//         isLoading: state.loading.isLoading
+//     }
+// }
+
 class Layout extends React.Component {
+
+    componentDidMount() {
+        let $loader = document.querySelector('.loader');
+        $loader.classList.remove('loader--active')
+    }
+
     render() {
+        // console.log(this.props.isLoading, '----this.state.isLoading')
+
+        // const showLoading = this.props.isLoading;
+
         const navList = [
             {
                 title: 'Home',
@@ -25,10 +51,12 @@ class Layout extends React.Component {
                 path: '/ord'
             },
         ];
+
         return (
             <div className="wrap">
                 <Navbar navList={navList} />
                 <div className="container">
+                    <PageLoad></PageLoad>
                     <Outlet />
                 </div>
             </div>

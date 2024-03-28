@@ -30,12 +30,12 @@ let routers = [
                 path: 'record',
                 element: <Record />
             },
-            {
-                path: "*",
-                element: <Navigate to="/home" />
-            },
         ]
     },
+    {
+        path: '*',
+        element: <Navigate to="/home" />,
+    }
 ];
 
 export default routers

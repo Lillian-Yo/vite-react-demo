@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css?family=Kanit:100,700');
+
+$font: 'Kanit', sans-serif;
+
+$main: #F6A9BD;
+$light: #F4E0E1;
+$white: #FFFFFF;
+$dark: #F0386B;
+
+body {
+    font-family: $font;
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.effect1 {
+    position: absolute;
+    margin: 0;
+    top: 40%;
+    font-size: 2.3em;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    z-index: 3;
+    color: $main;
+}
+
+.effect1 .letter {
+    display: inline-block;
+    line-height: 1em;
+}
+
+.text {
+    position: absolute;
+    font-size: 1.8em;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    color: $dark;
+    font-weight: 100;
+    top: 50%;
+    z-index: 3;
+    opacity: 0;
+    top: 50%;
+}
+
+section {
+    display: grid;
+    grid-template-columns: repeat(10, auto);
+}
+
+.item {
+    background-color: $light;
+    height: 100vh;
+    z-index: 0;
+}

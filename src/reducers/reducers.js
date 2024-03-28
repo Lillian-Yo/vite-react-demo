@@ -1,5 +1,9 @@
 import { combineReducers } from "redux";
 
-const reducers = combineReducers();
+import loading from './module/loading';
+
+const reducers = combineReducers({
+    loading
+});
 
 export default reducers
