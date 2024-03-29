@@ -13,22 +13,8 @@ import './layout.scss'
     { setLoading }
 )
 
-// const mapStateToProps = (state) => {
-//     console.log(state, 3333)
-//     return {
-//         isLoading: state.loading.isLoading
-//     }
-// }
-
 class Layout extends React.Component {
-
-    // componentDidMount() {}
-
     render() {
-        // console.log(this.props.isLoading, '----this.state.isLoading')
-
-        // const showLoading = this.props.isLoading;
-
         const navList = [
             {
                 title: 'Home',

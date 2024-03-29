@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { createStore, applyMiddleware } from 'redux';
+import { legacy_createStore as createStore, compose, applyMiddleware } from 'redux';
 import { thunk } from 'redux-thunk';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
@@ -14,8 +14,8 @@ import '@/assets/css/global.css'
 
 const store = createStore(
   reducers,
-  applyMiddleware(thunk)
-)
+  compose(applyMiddleware(thunk))
+);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   (<Provider store={store}>
