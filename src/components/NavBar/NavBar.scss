@@ -66,11 +66,62 @@
             // transform: translateY(-0.25em);
             animation: shaking 2.5s infinite;
         }
+
+        /***** Menu Button *****/
+        .home-mobile-menu-btn {
+            position: relative;
+            height: 22px;
+            width: 30px;
+            outline: none;
+            span, span::before, span::after {
+                position: absolute;
+                content: '';
+                width: 30px;
+                height: 2px;
+                background: #646464;
+                transition: .7s cubic-bezier(0.77, 0, 0.175, 1);
+            }
+            span {
+                position: relative;
+                display: block;
+                top: 50%;
+                transform: translate(0,-50%);
+            }
+            span::before {
+                top: -8px;
+            }
+            span::after {
+                top: 8px;
+            }
+        }
+        .active {
+            span {
+                background: transparent;
+            }
+            span::before {
+                transform: rotate(-225deg);
+                top: 0px;
+            }
+            span::after {
+                transform: rotate(225deg);
+                top: 0px;
+            }
+        }
     }
 }
 
 @keyframes shaking {
     55% {
         transform: translateY(-10px);
+    }
+}
+
+@media (min-width: 768px) {
+    .home-nav {
+        &-rt {
+            .home-mobile-menu-btn {
+                display: none;
+            }
+        }
     }
 }

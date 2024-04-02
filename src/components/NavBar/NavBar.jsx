@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink, Link } from 'react-router-dom';
 import { connect } from "react-redux";
 
@@ -16,9 +16,35 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 class NavBar extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            menuState: false
+        };
+        this.toggleMenu = this.toggleMenu.bind(this);
+    }
+
+    toggleMenu() {
+        console.log('点击事件')
+        this.setState(state => ({
+            menuState: !state.menuState
+              ? 'active'
+              : state.menuState === 'deactive'
+                ? 'active'
+                : 'deactive'
+          }));
+    }
 
     render() {
         // let historyState = window.location.pathname; 获取当前路由地址
+
+        // const [menuState, setMenuState] = useState(false);
+    
+        // const toggleMenu = () => {
+        //     console.log('点击事件')
+        //     setMenuState(!menuState);
+        // }
+
         return (
             <div className="home-nav flex-al just-bt">
                 <div className="home-nav-lt flex-al">
@@ -49,10 +75,17 @@ class NavBar extends React.Component {
                             })
                         }
                     </div>
+                    
                 </div>
                 <div className="home-nav-rt flex-al">
                     <ThemeToogle></ThemeToogle>
                     <div className="login-btn">Login</div>
+                    <div 
+                        className={this.state.menuState === 'active' ? 'home-mobile-menu-btn active' : 'home-mobile-menu-btn'} 
+                        onClick={this.toggleMenu}
+                    >
+                        <span></span>
+                    </div>
                 </div>
             </div>
         )
