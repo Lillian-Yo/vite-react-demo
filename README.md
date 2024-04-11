@@ -8,7 +8,7 @@
 
 你可以把它当作一个简单的网站模板，毕竟基础功能差不多都有了，就差往里面填充内容了
 
-感兴趣的小伙伴，欢迎 **Star** 和 **Fork** ~
+感兴趣的小伙伴，欢迎 **Star** 和 **Fork** ~ ❤️
 
 本项目具体包含以下内容：
 
@@ -32,7 +32,7 @@
 - Redux
 - Reducer
 
-**Redux** 与 **Reducer**，在这个项目中原来有用到，但是后面被我去除了。但是我还保留着，具体使用部分可以在我的归档文博里进行查看：[请点击此处跳转]('https://jacindatang.vercel.app/note/react/redux.html')
+**Redux** 与 **Reducer**，在这个项目中原来在写页面加载过渡动画时，用了 **Redux**，但是后面被我去除了，改成用组件传值的方式来实现。具体使用部分，我写到了我的归档文博里：[请点击此处跳转](https://jacindatang.vercel.app/note/react/redux.html)
 
 ## Start
 
@@ -56,13 +56,13 @@ npm run dev
 
 ### 开屏动画
 
-这个动画效果，是从 **CodePen** 上拿过来的，源链接：[点击此处]('https://codepen.io/juliepark/pen/pXoEqy')
+这个动画效果，是从 **CodePen** 上拿过来的，源链接：[点击此处](https://codepen.io/juliepark/pen/pXoEqy)
 
 ![图 1](./src/assets/screenshot/1.gif) 
 
 ### 页面跳转过渡动画
 
-源链接：[点击此处]('https://codepen.io/mitori/details/zLKZVZ')
+源链接：[点击此处](https://codepen.io/mitori/details/zLKZVZ)
 
 这块，不知道是我路由没有写好，还是我过渡动画组件封装的问题，会有点小**bug**： 第一次点击页面跳转时，会先是整个页面纯色背景，过一会才会向下图这样过渡流畅。如果有小伙伴能解决，欢迎在 **issue** 中讨论一下，非常感谢！
 
