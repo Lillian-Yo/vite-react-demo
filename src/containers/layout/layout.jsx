@@ -1,48 +1,84 @@
 import React from "react";
 import { Outlet } from 'react-router-dom';
-import { connect } from "react-redux";
-
-import { setLoading } from '@/reducers/actions/actions'
 
 import Navbar from "@/components/NavBar/NavBar";
+import PageLoad from '@/components/Loading/PageLoad/PageLoad';
+import Container from "@/components/Container/Container";
 
 import './layout.scss'
 
-@connect(
-    state => ({ isLoading: state.loading.isLoading }),
-    { setLoading }
-)
+/**
+ * @name 整体的页面布局
+ * @param {Array} navList - 顶部导航列表
+ *
+*/
 
-class Layout extends React.Component {
-    render() {
-        const navList = [
-            {
-                title: 'Home',
-                path: '/home'
-            },
-            {
-                title: 'Record',
-                path: '/record'
-            },
-            {
-                title: 'Tet',
-                path: '/rd'
-            },
-            {
-                title: 'Ord',
-                path: '/ord'
-            },
-        ];
+export default function Layout() {
+    const navList = [
+        {
+            title: 'Home',
+            path: '/home'
+        },
+        {
+            title: 'Record',
+            path: '/record'
+        },
+        {
+            title: 'Tet',
+            path: '/rd'
+        },
+        {
+            title: 'Ord',
+            path: '/ord'
+        },
+    ];
 
-        return (
-            <div className="wrap">
-                <Navbar navList={navList} />
-                <div className="container">
+    return (
+        <div className="layout-wrap">
+            <Navbar navList={navList} />
+            <div className="layout-content">
+                <Container>
+                    <PageLoad />
                     <Outlet />
-                </div>
+                </Container>
             </div>
-        )
-    }
+        </div>
+    )
 }
 
-export default Layout
+// class Layout extends React.Component {
+//     render() {
+//         const navList = [
+//             {
+//                 title: 'Home',
+//                 path: '/home'
+//             },
+//             {
+//                 title: 'Record',
+//                 path: '/record'
+//             },
+//             {
+//                 title: 'Tet',
+//                 path: '/rd'
+//             },
+//             {
+//                 title: 'Ord',
+//                 path: '/ord'
+//             },
+//         ];
+
+//         return (
+//             <div className="layout-wrap">
+//                 <Navbar navList={navList} />
+//                 <div className="layout-content">
+//                     <Container>
+//                         <PageLoad />
+//                         <Outlet />
+//                     </Container>
+//                 </div>
+//             </div>
+//         )
+//     }
+// }
+
+// export default Layout

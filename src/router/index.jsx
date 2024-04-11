@@ -11,6 +11,7 @@ import HomeLoad from '@/components/Loading/HomeLoad/HomeLoad';
 const Layout = lazy(() => import('@/containers/layout/layout'));
 const Home = lazy(() => import('@/containers/home/home'));
 const Record = lazy(() => import('@/containers/record/record'));
+const NonePage = lazy(() => import('@/containers/404/index'));
 
 /**
  * @name 路由配置 
@@ -25,7 +26,6 @@ let routers = [
         path: '/',
         element: <Layout />,
         children: [
-            
             {
                 path: 'home',
                 element: <Home />
@@ -38,7 +38,7 @@ let routers = [
     },
     {
         path: '*',
-        element: <Navigate to="/home" />,
+        element: <NonePage />,
     }
 ];
 

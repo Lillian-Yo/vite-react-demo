@@ -14,7 +14,7 @@ body {
     overflow: hidden;
 }
 
-.container {
+.HomeLoad-content {
     //width: 100%;
     display: flex;
     justify-content: center;
@@ -29,6 +29,7 @@ body {
     letter-spacing: 0.1em;
     z-index: 3;
     color: $main;
+    transition: font-size .2s ease;
 }
 
 .effect1 .letter {
@@ -47,15 +48,18 @@ body {
     z-index: 3;
     opacity: 0;
     top: 50%;
+    transition: font-size .2s ease;
 }
 
 .btn {
     top: 57% !important;
     cursor: pointer;
     color: $dark;
+
     a {
         text-decoration: none;
     }
+
     a:visited {
         color: $dark;
     }

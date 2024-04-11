@@ -11,6 +11,7 @@ import App from './App.jsx'
 
 import './index.css'
 import '@/assets/css/global.css'
+import '@/assets/css/media.scss'
 
 const store = createStore(
   reducers,

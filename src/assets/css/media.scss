@@ -1,0 +1,104 @@
+@media screen and (max-width: 1440px) {
+	.container {
+		width: 992px !important;
+	}
+
+	.home-nav {
+		&-rt {
+			label {
+				width: 60px !important;
+				height: 28px !important;
+			}
+
+			label:after {
+				width: 22px !important;
+				height: 22px !important;
+				top: 3px !important;
+				left: 6px !important;
+			}
+
+			label svg.sun {
+				left: 8px !important;
+			}
+
+			label svg {
+				width: 16px !important;
+				top: 5px !important;
+			}
+
+			input:checked+label:after {
+				left: 55px !important;
+			}
+
+			label svg.moon {
+				left: 37px !important;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 1024px) {
+	.container {
+		width: 936px !important;
+	}
+
+	.HomeLoad-content {
+		.effect1 {
+			font-size: 2em !important;
+		}
+
+		.text {
+			font-size: 1.5em !important;
+		}
+	}
+}
+
+@media screen and (max-width: 960px) {
+	.container {
+		width: 835px !important;
+	}
+
+	.HomeLoad-content {
+		.effect1 {
+			font-size: 1.5em !important;
+		}
+
+		.text {
+			font-size: 1em !important;
+		}
+	}
+
+	.home-nav {
+		padding: 0 25px;
+
+		&-lt {
+			.home-nav-list {
+				display: none;
+			}
+		}
+
+		&-rt {
+			.login-btn {
+				display: none;
+			}
+
+			.home-mobile-menu {
+				&-btn {
+					display: block !important;
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 720px) {
+	.HomeLoad-content {
+		.effect1 {
+			font-size: .8em !important;
+		}
+
+		.text {
+			font-size: .5em !important;
+		}
+	}
+}

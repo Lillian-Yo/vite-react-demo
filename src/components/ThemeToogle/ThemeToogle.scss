@@ -1,12 +1,12 @@
-body {
-	margin: 0;
-	width: 100vw;
-	height: 100vh;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-}
+// body {
+// 	margin: 0;
+// 	width: 100vw;
+// 	height: 100vh;
+// 	display: flex;
+// 	flex-direction: column;
+// 	align-items: center;
+// 	justify-content: center;
+// }
 
 label {
 	width: 70px;
@@ -19,6 +19,7 @@ label {
 		inset 0px -5px 15px rgba(255, 255, 255, 0.4);
 	cursor: pointer;
 	transition: 0.3s;
+
 	&:after {
 		content: "";
 		width: 26px;
@@ -31,16 +32,19 @@ label {
 		box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
 		transition: 0.3s;
 	}
+
 	svg {
 		position: absolute;
 		width: 18px;
 		top: 7px;
 		z-index: 100;
+
 		&.sun {
 			left: 8px;
 			fill: #fff;
 			transition: 0.3s;
 		}
+
 		&.moon {
 			left: 45px;
 			fill: #7e7e7e;
@@ -54,27 +58,33 @@ input {
 	width: 0;
 	height: 0;
 	visibility: hidden;
-	&:checked + label {
-		background: #242424;
+
+	&:checked+label {
+		background: var(--theme-color);
+
 		&:after {
 			left: 66px;
 			transform: translateX(-100%);
 			background: linear-gradient(180deg, #777, #3a3a3a);
 		}
+
 		svg {
 			&.sun {
 				fill: #7e7e7e;
 				display: none;
 			}
+
 			&.moon {
 				fill: #fff;
 				display: initial;
 			}
 		}
-		+ .background {
+
+		+.background {
 			background: #242424;
 		}
 	}
+
 	&:active:after {
 		width: 260px;
 	}

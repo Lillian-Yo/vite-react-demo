@@ -1,11 +1,12 @@
-.wrap {
-    background: var(--theme-bgColor);
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
+.layout {
+    &-wrap {
+        background: var(--theme-bgColor);
+        height: 100%;
 
-    .container {
-        margin: 0 100px;
-        flex: 1;
+
+    }
+
+    &-content {
+        margin-top: 85px;
     }
 }

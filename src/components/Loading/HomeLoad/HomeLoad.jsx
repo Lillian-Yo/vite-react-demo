@@ -3,6 +3,10 @@ import LoadAnime from '@/components/Loading/HomeLoad/LoadAnime';
 import './HomeLoad.scss';
 import { Link } from "react-router-dom";
 
+/**
+ * @name 首页预加载动画
+*/
+
 class HomeLoad extends React.Component {
     componentDidMount() {
         LoadAnime();
@@ -12,11 +16,11 @@ class HomeLoad extends React.Component {
 
         return (
             <>
-                <div className="container">
+                <div className="HomeLoad-content">
                     <h1 className="effect1">hello, my name is Jacinda, welcome!</h1>
                     <p className="text">nice to meet you ☺</p>
                     <p className="text btn">
-                        <Link 
+                        <Link
                             to="/home"
                             onClick={() => {
                                 let $loader = document.querySelector('.loader')
@@ -27,7 +31,7 @@ class HomeLoad extends React.Component {
                             }}
                         >点击进入</Link>
                     </p>
-                    
+
                 </div>
 
                 <section>
