@@ -18,7 +18,7 @@ body {
 
 /*默认主题对应的变量取值*/
 .light {
-    animation: 2.5s cubic-bezier(.25, 1, .30, 1) circle-to-white;
+    animation: 5s cubic-bezier(.25, 1, .30, 1) circle-to-white;
 }
 
 /*黑色主题对应的变量取值*/
@@ -27,7 +27,7 @@ body {
     --theme-bgColor: #242424;
     --theme-navBgColor: #242424;
     --theme-navBoxShodow: rgba(255, 255, 255, 0.3) 0px 10px 10px -10px;
-    animation: 2.5s cubic-bezier(.25, 1, .30, 1) circle-to-dark;
+    animation: 3s cubic-bezier(.25, 1, .30, 1) circle-to-dark;
 }
 
 * {
