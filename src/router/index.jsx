@@ -1,6 +1,3 @@
-import { Navigate } from 'react-router-dom';
-import { lazy } from 'react';
-
 import HomeLoad from '@/components/Loading/HomeLoad/HomeLoad';
 
 /**

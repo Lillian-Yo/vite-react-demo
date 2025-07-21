@@ -1,7 +1,5 @@
-import React from "react";
-
 import './PageLoad.scss';
-
+import React from "react";
 /**
  * @name 页面跳转过渡动画
 */

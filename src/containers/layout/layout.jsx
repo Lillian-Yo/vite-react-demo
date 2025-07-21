@@ -1,6 +1,3 @@
-import React from "react";
-import { Outlet } from 'react-router-dom';
-
 import Navbar from "@/components/NavBar/NavBar";
 import PageLoad from '@/components/Loading/PageLoad/PageLoad';
 import Container from "@/components/Container/Container";
