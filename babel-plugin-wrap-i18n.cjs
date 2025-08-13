@@ -82,6 +82,50 @@ module.exports = function ({ types: t }) {
         }
       },
 
+      // 处理 JSX 表达式容器中的变量
+      JSXExpressionContainer(path) {
+        const expression = path.node.expression;
+        
+        // 如果已经是 i18n.t() 调用，跳过处理
+        if (expression.type === 'CallExpression' && 
+            expression.callee.type === 'MemberExpression' &&
+            expression.callee.object.name === 'i18n' &&
+            expression.callee.property.name === 't') {
+          return;
+        }
+        
+        // 处理标识符（变量）
+        if (expression.type === 'Identifier') {
+          // 检查变量是否在作用域中定义
+          const binding = path.scope.getBinding(expression.name);
+          if (binding) {
+            // 检查变量的初始值是否包含中文
+            const initValue = getVariableInitValue(binding.path);
+            if (initValue && /[\u4e00-\u9fa5]/.test(initValue)) {
+              path.replaceWith(
+                t.jsxExpressionContainer(
+                  t.callExpression(
+                    t.memberExpression(t.identifier('i18n'), t.identifier('t')),
+                    [t.identifier(expression.name)]
+                  )
+                )
+              );
+            }
+          }
+        }
+        // 处理字符串字面量
+        else if (expression.type === 'StringLiteral' && /[\u4e00-\u9fa5]/.test(expression.value)) {
+          path.replaceWith(
+            t.jsxExpressionContainer(
+              t.callExpression(
+                t.memberExpression(t.identifier('i18n'), t.identifier('t')),
+                [t.stringLiteral(expression.value)]
+              )
+            )
+          );
+        }
+      },
+
       // 函数组件插入 useLang()
       FunctionDeclaration(path) {
         if (isReactComponent(path.node) && hasJSXInFunction(path.node)) {
@@ -116,6 +160,23 @@ function hasJSXInFunction(node) {
   );
 }
 
+// 获取变量的初始值
+function getVariableInitValue(bindingPath) {
+  if (bindingPath.node && bindingPath.node.init) {
+    const init = bindingPath.node.init;
+    if (init.type === 'StringLiteral') {
+      return init.value;
+    } else if (init.type === 'CallExpression' && 
+               init.callee.type === 'Identifier' && 
+               init.callee.name === 'useState' &&
+               init.arguments.length > 0 &&
+               init.arguments[0].type === 'StringLiteral') {
+      return init.arguments[0].value;
+    }
+  }
+  return null;
+}
+
 // 插入 useLang()
 function injectUseLangInside(path, t) {
   if (path.node.body && path.node.body.body) {
@@ -133,6 +194,4 @@ function injectUseLangInside(path, t) {
       );
     }
   }
-}
-
-
+} 

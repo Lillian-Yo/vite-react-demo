@@ -45,6 +45,7 @@ export default defineConfig({
     }
   },
   build: {
+    // sourcemap: true,
     rollupOptions: { // 自定义底层的 Rollup 打包配置
       output: {
         chunkFileNames: 'js/[name]-[hash].js', // 打包后的文件名称
@@ -94,5 +95,8 @@ export default defineConfig({
        },
     },
   }
-  }
+  },
+  // server: {
+  //   sourcemap: true // 开发环境可写，但默认已经开启
+  // }
 })

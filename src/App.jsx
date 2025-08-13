@@ -1,21 +1,21 @@
 import { Suspense } from 'react';
+import { useRoutes } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import Home from './containers/home/home';
-// import routers from './router';
+import routers from './router';
 
 import './App.css';
 
 
 
 function App() {
-  // const element = useRoutes(routers);
+  const element = useRoutes(routers);
   const queryClient = new QueryClient();
 
   return (
     <div className={`App lang-${lang}`}>
       <Suspense fallback={<></>}>
           <QueryClientProvider client={queryClient}>
-              <Home />
+              {element}
           </QueryClientProvider>
       </Suspense>
       </div>

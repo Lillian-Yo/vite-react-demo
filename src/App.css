@@ -1,3 +1,8 @@
 .App {
     height: 100%;
+    input {
+        visibility: visible !important;
+        width: 100px !important;
+        height: 30px !important
+    }
 }

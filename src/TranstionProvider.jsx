@@ -1,4 +1,7 @@
 import {useState, useEffect, createContext } from 'react';
+import { ConfigProvider } from 'antd';
+import enUS from 'antd/locale/en_US';
+import zhCN from 'antd/locale/zh_CN';
 // Context 存储当前语言
 export const TranslationContext = createContext('en');
 
@@ -7,7 +10,6 @@ export default function TranslationProvider({ children }) {
 
   useEffect(() => {
     const handler = (lng) => {
-      console.log('languageChanged', lng);
       setLang(lng);
     };
     i18n.on('languageChanged', handler);
@@ -16,7 +18,9 @@ export default function TranslationProvider({ children }) {
 
   return (
     <TranslationContext.Provider value={lang}>
-      {children}
+        <ConfigProvider locale={lang === 'en' ? enUS : zhCN} getPopupContainer={() => document.querySelector('.App')}>
+            {children}
+        </ConfigProvider>
     </TranslationContext.Provider>
   );
 }

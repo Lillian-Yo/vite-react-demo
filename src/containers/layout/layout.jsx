@@ -13,20 +13,16 @@ import './layout.scss'
 export default function Layout() {
     const navList = [
         {
-            title: 'Home',
+            title: 'Mobx',
             path: '/home'
         },
         {
-            title: 'Record',
+            title: 'Zustand',
             path: '/record'
         },
         {
-            title: 'Tet',
-            path: '/rd'
-        },
-        {
-            title: 'Ord',
-            path: '/ord'
+            title: 'RTK',
+            path: '/new'
         },
     ];
 
