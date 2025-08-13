@@ -7,6 +7,8 @@ import {Select, Table, Input} from 'antd';
 import {HighlightText, makeOptionRenderHighlighter} from '../../components/Highlight/Highlight';
 import {useState} from 'react';
 
+const highlightClass = 'yellow'
+
 const Home = observer(() => {
 
   const queryClient = useQueryClient();
@@ -63,7 +65,7 @@ const Home = observer(() => {
       title: '姓名',
       dataIndex: 'name',
       key: 'name',
-      render: (text) => <HighlightText text={text} query={searchValue}></HighlightText>,
+      render: (text) => <HighlightText keyword={searchValue} classname={highlightClass}>{text}</HighlightText>,
     },
     {
       title: '年龄',
@@ -82,21 +84,23 @@ const Home = observer(() => {
   // if (error) return <div>出错了</div>;
 
   // const todos = Array.isArray(data) ? data : data?.todos ?? [];
-  const optionRender = makeOptionRenderHighlighter({ query: searchValue });
+  // const optionRender = makeOptionRenderHighlighter({ query: searchValue });
 
   return (
     <div>
       <Input value={searchValue} onChange={e => {
         setSearchValue(e.target.value)
-      }
+        }
       }/>
        <Select
           showSearch
           style={{ width: '100px' }}
-          onSearch={setSearchValue}  
+          onSearch={setSearchValue} 
           options={options}           // 注意：options[i].label 保持为 string
           optionFilterProp="label"    // 用 label 做过滤
-          optionRender={optionRender} // 下拉项渲染时再高亮
+          optionRender={ option =>
+            <HighlightText keyword={searchValue} classname={highlightClass} text={option.label}></HighlightText>
+          }
         />
         <Table dataSource={dataSource} columns={columns} />;
       {/* <ul>
